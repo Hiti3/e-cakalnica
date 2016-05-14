@@ -1,0 +1,13 @@
+{
+  "name": "e-cakalnica",
+  "version": "0.0.1",
+  "description": "e-cakalnica Dragon Hack 2016",
+  "dependencies": {
+    "express": "latest",
+    "express-session":"latest",
+    "sqlite3": "latest",
+    "ejs": "latest", 
+    "fs":  "latest", 
+    "html": "latest"
+  }
+}
