@@ -1,1 +1,153 @@
-USER
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>E-Cakalnica</title>
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="user.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.bootstrap.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.dataTables.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.foundation.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.jqueryui.scss" rel="stylesheet">
+    <link href="bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="bower_components/startbootstrap-sb-admin-2/dist/css/timeline.css" rel="stylesheet">
+    <link href="bower_components/morrisjs/lib/example.css" rel="stylesheet">
+    <link href="bower_components/metisMenu/dist/metisMenu.css" rel="stylesheet">
+    <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    
+    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/npm.js"></script>
+    
+    <script src="user.js"></script>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Podatki o pacientu</div>
+        <div class="panel-body">
+          
+          <!--Podatki o uporabniku-->
+          <div class = "row">
+            <div class = "col-lg-2 col-md-2 col-xs-3 col-sm-3" >
+              <img src="pictures/userPicture.png" class = "container-picture"></img>
+            </div>
+            <div class = "col-lg-10 col-md-10 col-xs-9 col-sm-9" >
+              <div class = "row">
+                <div class = "col-lg-2 col-md-2 col-xs-12 col-sm-2">
+                  <p class = "p-oznake">Ime</p>
+                  <p class = "p-podatki">"Ime osebe"</p>
+                </div>
+              </div>
+              <div class = "row">
+                <div class = "col-lg-2 col-md-2 col-xs-12 col-sm-2">
+                  <p class = "p-oznake">Priimek</p>
+                  <p class = "p-podatki">"Priimek osebe"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col-lg-2 col-md-2 col-xs-12 col-sm-2">
+              <p class = "p-oznake">Starost</p>
+              <p class = "p-podatki">"Starost osebe"</p>
+            </div>
+          </div>
+          <!--Podatki o uporabniku-->
+          
+                      <!-- ETA -->
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <div class="row" id="peopleInFront">
+                    <div class="col-xs-3"><i class="fa fa-meh-o fa-5x"></i></div>
+                    <div class="col-xs-9 text-right">
+                      <div class="huge" id="peopleQueue">3</div>
+                      <div>Ljudje pred teboj v čakalni vrsti</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                </div>
+                </div>
+            </div>
+          
+          
+          <!-- Ljudje pred teboj-->
+          <div class="row">
+            <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+            -->
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <div class="row">
+                    <div class="col-xs-3"><i class="fa fa-clock-o fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                      <div class="huge">X</div>
+                      <div>Preostanek časa v vrsti</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer">
+                  <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+            -->
+
+          </div>
+          <!-- END BODY -->
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-1"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div <button type="button" class="btn btn-primary" style="width: 100%;font-size: medium">Potrdi prihod</button>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-1"></div>
+          </div>
+        </div>
+    </div>
+    
+    
+    
+   
+  </body>
+</html> 
+
+
+

@@ -2,6 +2,8 @@
 if (!process.env.PORT)
   process.env.PORT = 8080;
 
+
+
 //podatkovna baza
 var sqlite3 = require('sqlite3').verbose();
 var pb = new sqlite3.Database('cakalnaVrsta.sl3');
@@ -26,8 +28,11 @@ streznik.use(
     }
   })
 );
+
+//za strezenje staticnih datotek
+streznik.use(express.static("/public"));
 //nastavi path
-var path = require('path')
+var path = require('path');
 
 //prikazi index.html
 streznik.get('/', function(zahteva, odgovor) {
@@ -47,7 +52,7 @@ streznik.get('/', function(zahteva, odgovor) {
     
 })
 
-//prikazi user.html
+//prikazi user.ej
 streznik.get('/user', function(zahteva, odgovor) {
     pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
         if(napaka){
@@ -60,14 +65,14 @@ streznik.get('/user', function(zahteva, odgovor) {
 })
 //prikazi cakalnica.html
 streznik.get('/cakalnica', function(zahteva, odgovor) {
-   var stmt = pb.prepare("\
+   /*var stmt = pb.prepare("\
         INSERT INTO potrjeneStranke \
           (id, ime, priimek, timestamp ) \
         VALUES (?,?,?,?)");
       //TODO: add fields and finalize
       stmt.run("54", "aaaabdsadasa", "dsdsadasaodasd", new Date().getTime()); 
       stmt.finalize();
-  
+  */
     pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
         if(napaka){
             console.log("Napaka baze");

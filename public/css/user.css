@@ -1,0 +1,33 @@
+.pictureHolder
+{
+    height:100px;
+    width:100px;
+    border:1px black solid;
+}
+.container-picture
+{
+    height: 100%;
+    width: 100%;
+    background-image: url("pictures/userPicture.png");
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    margin-left:1%;
+    margin-top:1%;
+}
+
+.p-oznake {
+    font-size: medium;
+    font-weight: bold;
+}
+.p-podatki {
+    font-size: medium;
+}
+
+.moji-alerti{
+    background-color: red;
+}
+
+.fck-system {
+    margin-bottom: none;
+}
