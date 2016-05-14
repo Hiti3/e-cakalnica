@@ -31,34 +31,63 @@ var path = require('path')
 
 //prikazi index.html
 streznik.get('/', function(zahteva, odgovor) {
+    
     console.log("ping..");
     pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
         if(napaka){
             console.log("Napaka baze");
         }else{
             console.log(vrstice);
+            odgovor.render('seznam', {potrjeneStranke: vrstice});
         }
     })
     
     
-    odgovor.sendFile(path.join(__dirname, "views/index.html"));
+    //odgovor.sendFile(path.join(__dirname, "views/index.html"));
     
 })
 
 //prikazi user.html
 streznik.get('/user', function(zahteva, odgovor) {
-    console.log("ping..");
-    odgovor.sendFile(path.join(__dirname, "views/user.html"));
+    pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
+        if(napaka){
+            console.log("Napaka baze");
+        }else{
+            console.log(vrstice);
+            odgovor.render('user', {potrjeneStranke: vrstice});
+        }
+    })
 })
 //prikazi cakalnica.html
 streznik.get('/cakalnica', function(zahteva, odgovor) {
-    console.log("ping..");
-    odgovor.sendFile(path.join(__dirname, "views/cakalnica.html"));
+   var stmt = pb.prepare("\
+        INSERT INTO potrjeneStranke \
+          (id, ime, priimek, timestamp ) \
+        VALUES (?,?,?,?)");
+      //TODO: add fields and finalize
+      stmt.run("54", "aaaabdsadasa", "dsdsadasaodasd", new Date().getTime()); 
+      stmt.finalize();
+  
+    pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
+        if(napaka){
+            console.log("Napaka baze");
+        }else{
+            console.log(vrstice);
+            odgovor.render('cakalnica', {potrjeneStranke: vrstice});
+        }
+    })
 })
 //prikazi usluzbenec.html
 streznik.get('/usluzbenec', function(zahteva, odgovor) {
-    console.log("ping");
-    odgovor.sendFile(path.join(__dirname, "views/usluzbenec.html"));
+  pb.run("DELETE FROM potrjeneStranke WHERE id = 52");
+   pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
+        if(napaka){
+            console.log("Napaka baze");
+        }else{
+            console.log(vrstice);
+            odgovor.render('usluzbenec', {potrjeneStranke: vrstice});
+        }
+    })
 })
 
 //Pozenemo streznik
