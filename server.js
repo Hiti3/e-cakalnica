@@ -2,6 +2,12 @@
 if (!process.env.PORT)
   process.env.PORT = 8080;
 
+//podatkovna baza
+var sqlite3 = require('sqlite3').verbose();
+var pb = new sqlite3.Database('cakalnaVrsta.sl3');
+
+
+
 // Priprava strežnika
 var express = require('express');
 var expressSession = require('express-session');
@@ -26,7 +32,17 @@ var path = require('path')
 //prikazi index.html
 streznik.get('/', function(zahteva, odgovor) {
     console.log("ping..");
+    pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
+        if(napaka){
+            console.log("Napaka baze");
+        }else{
+            console.log(vrstice);
+        }
+    })
+    
+    
     odgovor.sendFile(path.join(__dirname, "views/index.html"));
+    
 })
 
 //prikazi user.html
