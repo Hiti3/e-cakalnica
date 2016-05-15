@@ -160,3 +160,4 @@ streznik.get('/usluzbenec', function(zahteva, odgovor) {
 streznik.listen(process.env.PORT, function() {
   console.log("Strežnik pognan!");
 })
+    
