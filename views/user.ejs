@@ -43,12 +43,14 @@
   </head>
   <body>
     
+
     <%
     var name="John";
     var surname="Snow";
     var id="d6a3a5a1-17f7-4178-9f74-440d87cc2781";
-    
     %>
+    
+    
     
     <div class="panel panel-primary">
       <div class="panel-heading"> <h2 style="text-align: center;margin-top: 0px;margin-bottom: 5px;">Podatki o pacientu</h2></div>
@@ -145,18 +147,17 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-1"></div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <form action="/potrdi" method="post" >
-                <button name="/potrdi" type="button" class="btn btn-primary" style="width: 100%;font-size: medium">Potrdi prihod</button>
+              <form action="/potrdi" method="post">
+                <input style="display:none;" name ="nameOf" value ="John"/>
+                <input style="display:none;" name ="surnameOf" value ="Snow"/>
+                <input style="display:none;" name ="idOf" value ="d6a3a5a1-17f7-4178-9f74-440d87cc2781"/>
+                <button name="/potrdi" type="submit" class="btn btn-primary" style="width: 100%;font-size: medium">Potrdi prihod</button>
               </form>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-1"></div>
           </div>
         </div>
     </div>
-    
-    
-    
-   
   </body>
 </html> 
 

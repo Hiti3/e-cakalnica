@@ -12,6 +12,7 @@ var pb2 = new sqlite3.Database('trenutnaVrsta.sl3');
 
 
 // Priprava strežnika
+var formidable = require("formidable");
 var express = require('express');
 var expressSession = require('express-session');
 var fs = require("fs");
@@ -61,6 +62,7 @@ streznik.get('/user', function(zahteva, odgovor) {
         }else{
             console.log(vrstice);
             odgovor.render('user', {potrjeneStranke: vrstice});
+            
         }
     })
 })
@@ -75,8 +77,8 @@ streznik.get('/cakalnica', function(zahteva, odgovor) {
       stmt.finalize();
   */
 
-    pb.all("SELECT * FROM potrjeneStranke LIMIT 6", function(napaka, vrstice){
-        pb2.all("SELECT * FROM potrjeneStranke LIMIT 4", function(napaka, vrstice1){
+    pb.all("SELECT * FROM potrjeneStranke LIMIT 10", function(napaka, vrstice){
+        pb2.all("SELECT * FROM potrjeneStranke LIMIT 10", function(napaka, vrstice1){
         if(napaka){
             console.log("Napaka baze");
         }else{
@@ -89,17 +91,19 @@ streznik.get('/cakalnica', function(zahteva, odgovor) {
 })
 
 
-streznik.get('/potrdi', function(zahteva, odgovor) {
+streznik.post('/potrdi', function(zahteva, odgovor) {
     var form = new formidable.IncomingForm();
-    form.parse(zahteva, function(polje, datoteka){
-       var stmt = pb.prepare("\
+    
+    form.parse(zahteva, function(napaka1, polje, datoteke){
+       var stmt = pb2.prepare("\
         INSERT INTO potrjeneStranke \
           (id, ime, priimek ) \
         VALUES (?,?,?)");
-        stmt.run("")
-    });
-    
-
+        stmt.run(polje.idOf,polje.nameOf,polje.surnameOf);
+        stmt.finalize();
+        console.log(polje);
+        odgovor.redirect('/user');
+    })
 });
 
 //prikazi usluzbenec.html
