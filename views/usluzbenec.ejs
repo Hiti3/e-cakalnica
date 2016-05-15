@@ -29,13 +29,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
     <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    <script src="js/ehrscape.js"></script>
     
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
-    <script src="usluzbenec.js"></script>
+    <script src="js/usluzbenec.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -55,8 +56,8 @@
               <!-- -->
                <% trenutneStranke.forEach(function(stranka) { %>
 
-                <button type="button" data-open="false" class="list-group-item toggle-kartoteka" ><%=stranka.ime %> </button>
-                <div class = "kartoteka" id ="<%=stranka.id %>" >
+                <button type="button" data-open="false" class="list-group-item toggle-kartoteka" onclick="clicked('<%=stranka.id %>')"><%=stranka.ime + "      "+ stranka.priimek + "    |    " + stranka.id %> </button>
+                <div class = "kartoteka" style = "display:none" id ="<%=stranka.id %>" >
                 <div class = "col-lg-12 col-md-12 col-xs-12 col-sm-12">
                   <div class="panel panel-primary">
                     <div class="panel-heading"></div>
@@ -83,8 +84,8 @@
               
               <% potrjeneStranke.forEach(function(stranka) { %>
 
-                <button type="button" data-open="false" class="list-group-item toggle-kartoteka" ><%=stranka.ime %> </button>
-                <div class = "kartoteka" id ="<%=stranka.id %>" >
+                <button type="button" data-open="false" class="list-group-item toggle-kartoteka" onclick="clicked('<%=stranka.id %>')"><%=stranka.ime + "      "+ stranka.priimek + "    |    " + stranka.id %> </button>
+                <div class = "kartoteka" style = "display:none" id ="<%=stranka.id %>" >
                 <div class = "col-lg-12 col-md-12 col-xs-12 col-sm-12">
                   <div class="panel panel-primary">
                     <div class="panel-heading"></div>
