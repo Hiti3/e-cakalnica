@@ -42,10 +42,14 @@
 
   </head>
   <body>
-    <div class="panel panel-primary col-lg-6">
-        <h1 style="text-align: center;">POTRJENI ČAKAJOČI</h1>
-        <table class="table table-condensed">
-            <thead>
+    <div style="background: #337ab7;">
+        <h2 style="text-align: center; color: white; margin:0; padding: 20px;">ČAKALNICA</h2>
+    </div>
+    <div class="panel panel-primary col-lg-12" style="padding-left: 10%;padding-right: 10%;">
+        <h3 style="text-align: center;">POTRJENI ČAKAJOČI</h3>
+        <% var i = 1; %>
+        <table class="table table-condensed" style="margin-bottom: 20px;">
+            <thead style=" background: rgba(51, 122, 183, .8);">
               <tr>
                 <th>Ime</th>
                 <th>Priimek</th>
@@ -53,21 +57,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>10 min</td>
+               <% potrjeneStranke.forEach(function(stranka) { %>
+                <tr id="<%= stranka.id %>" class="pesem">
+                <td>
+                 <%= stranka.ime %>
+                </td>
+                <td>
+                 <%= stranka.priimek %>
+                </td>
+                <td>
+                 <%= i++*10; %> min
+                </td>
+                
               </tr>
-              <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>25 min</td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>40 min</td>
-              </tr>
+            <% }) %>
             </tbody>
         </table>
      
@@ -75,37 +78,34 @@
                             
                             
     </div>
-    <div class="panel panel-primary col-lg-6 ">
-      
-      <h1 style="text-align: center;">ČAKAJOČI NA POTRDITEV</h1>
-      <table class="table table-condensed">
-            <thead>
+    <div class="panel panel-primary col-lg-12" style="padding-left: 10%;padding-right: 10%;">
+        <h3 style="text-align: center;">ČAKAJO NA POTRDITEV</h3>
+        <table class="table table-condensed" style="margin-bottom: 20px;">
+            <thead style=" background: rgba(51, 122, 183, .80);">
               <tr>
-                <th>ID</th>
                 <th>Ime</th>
                 <th>Priimek</th>
+                <th>Id</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>0001</td>
-                <td>John</td>
-                <td>Doe</td>
+               <% trenutneStranke.forEach(function(stranka) { %>
+                <tr id="<%= stranka.id %>" class="pesem">
+                <td>
+                 <%= stranka.ime %>
+                </td>
+                <td>
+                 <%= stranka.priimek %>
+                </td>
+                <td>
+                <%= stranka.id %>
+                </td>
+                
+                
               </tr>
-              <tr>
-                <td>0002</td>
-                <td>Mary</td>
-                <td>Moe</td>
-              </tr>
-              <tr>
-                <td>0003</td>
-                <td>July</td>
-                <td>Dooley</td>
-              </tr>
+            <% }) %>
             </tbody>
         </table>
-    </div>
-
     
     
    

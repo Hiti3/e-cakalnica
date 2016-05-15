@@ -42,36 +42,45 @@
 
   </head>
   <body>
+    
+    <%
+    var name="John";
+    var surname="Snow";
+    var id="d6a3a5a1-17f7-4178-9f74-440d87cc2781";
+    
+    %>
+    
     <div class="panel panel-primary">
-      <div class="panel-heading">Podatki o pacientu</div>
+      <div class="panel-heading"> <h2 style="text-align: center;margin-top: 0px;margin-bottom: 5px;">Podatki o pacientu</h2></div>
         <div class="panel-body">
           
           <!--Podatki o uporabniku-->
-          <div class = "row">
-            <div class = "col-lg-2 col-md-2 col-xs-3 col-sm-3" >
+          
+            <div class = "col-lg-2 col-md-2 col-xs-3 col-sm-3" style="margin-bottom: 10px;margin-top: 10px;margin-left: 0px;margin-right: 0px;" >
               <img src="pictures/userPicture.png" class = "container-picture"></img>
             </div>
-            <div class = "col-lg-10 col-md-10 col-xs-9 col-sm-9" >
+            <div class = "col-lg-10 col-md-10 col-xs-9 col-sm-9" style="margin-top: 45px;" >
               <div class = "row">
                 <div class = "col-lg-2 col-md-2 col-xs-12 col-sm-2">
-                  <p class = "p-oznake">Ime</p>
-                  <p class = "p-podatki">"Ime osebe"</p>
+                  <span class = "p-oznake">Ime: </span>
+                  <span class = "p-podatki"><b> John </b></span>
                 </div>
               </div>
               <div class = "row">
                 <div class = "col-lg-2 col-md-2 col-xs-12 col-sm-2">
-                  <p class = "p-oznake">Priimek</p>
-                  <p class = "p-podatki">"Priimek osebe"</p>
+                  <span class = "p-oznake">Priimek: </span>
+                  <span class = "p-podatki"><b> Snow </b></span>
                 </div>
+              </div>
+              <div class = "row">
+                <div class = "col-lg-2 col-md-2 col-xs-12 col-sm-2">
+                <span class = "p-oznake">Id: </span>
+                    <span class = "p-podatki"><b>440d87cc2781 </b></span>
+              </div>
               </div>
             </div>
           </div>
-          <div class = "row">
-            <div class = "col-lg-2 col-md-2 col-xs-12 col-sm-2">
-              <p class = "p-oznake">Starost</p>
-              <p class = "p-podatki">"Starost osebe"</p>
-            </div>
-          </div>
+          
           <!--Podatki o uporabniku-->
           
                       <!-- ETA -->
@@ -136,7 +145,9 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-1"></div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div <button type="button" class="btn btn-primary" style="width: 100%;font-size: medium">Potrdi prihod</button>
+              <form action="/potrdi" method="post" >
+                <button name="/potrdi" type="button" class="btn btn-primary" style="width: 100%;font-size: medium">Potrdi prihod</button>
+              </form>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-1"></div>
           </div>

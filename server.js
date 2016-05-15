@@ -7,6 +7,7 @@ if (!process.env.PORT)
 //podatkovna baza
 var sqlite3 = require('sqlite3').verbose();
 var pb = new sqlite3.Database('cakalnaVrsta.sl3');
+var pb2 = new sqlite3.Database('trenutnaVrsta.sl3');
 
 
 
@@ -73,15 +74,34 @@ streznik.get('/cakalnica', function(zahteva, odgovor) {
       stmt.run("54", "aaaabdsadasa", "dsdsadasaodasd", new Date().getTime()); 
       stmt.finalize();
   */
-    pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
+
+    pb.all("SELECT * FROM potrjeneStranke LIMIT 6", function(napaka, vrstice){
+        pb2.all("SELECT * FROM potrjeneStranke LIMIT 4", function(napaka, vrstice1){
         if(napaka){
             console.log("Napaka baze");
         }else{
             console.log(vrstice);
-            odgovor.render('cakalnica', {potrjeneStranke: vrstice});
+            odgovor.render('cakalnica', {trenutneStranke: vrstice1, potrjeneStranke: vrstice});
         }
+        })
     })
+   
 })
+
+
+streznik.get('/potrdi', function(zahteva, odgovor) {
+    var form = new formidable.IncomingForm();
+    form.parse(zahteva, function(polje, datoteka){
+       var stmt = pb.prepare("\
+        INSERT INTO potrjeneStranke \
+          (id, ime, priimek ) \
+        VALUES (?,?,?)");
+        stmt.run("")
+    });
+    
+
+});
+
 //prikazi usluzbenec.html
 streznik.get('/usluzbenec', function(zahteva, odgovor) {
   pb.run("DELETE FROM potrjeneStranke WHERE id = 52");
