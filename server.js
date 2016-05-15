@@ -56,14 +56,15 @@ streznik.get('/', function(zahteva, odgovor) {
 
 //prikazi user.ej
 streznik.get('/user', function(zahteva, odgovor) {
-    pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
+    pb.all("SELECT * FROM potrjeneStranke LIMIT 10", function(napaka, vrstice){
+        pb2.all("SELECT * FROM potrjeneStranke LIMIT 10", function(napaka, vrstice1){
         if(napaka){
             console.log("Napaka baze");
         }else{
             console.log(vrstice);
-            odgovor.render('user', {potrjeneStranke: vrstice});
-            
+            odgovor.render('user', {trenutneStranke: vrstice1, potrjeneStranke: vrstice});
         }
+        })
     })
 })
 //prikazi cakalnica.html
