@@ -8,6 +8,7 @@
     "sqlite3": "latest",
     "ejs": "latest", 
     "fs":  "latest", 
-    "html": "latest"
+    "html": "latest",
+    "formidable": "latest"
   }
 }

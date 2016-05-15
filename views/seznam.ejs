@@ -7,13 +7,17 @@
 
 <!-- This is an HTML comment -->
 <% potrjeneStranke.forEach(function(stranka) { %>
-              <div id="<%= stranka.id %>" class="pesem">
-                <p>
-                  <span class="glyphicon glyphicon-plus"></span>
-                  <strong><span class="naziv"><%= stranka.ime %></span></strong>
-                  (<span class="izvajalec"><%= stranka.priimek %></span>)
-                </p>
-              </div>
+              <tr id="<%= stranka.id %>" class="pesem">
+                <td>
+                 <%= stranka.ime %>
+                </td>
+                <td>
+                 <%= stranka.id %>
+                </td>
+                <td>
+                 <%= stranka.priimek %>
+                </td>
+              </tr>
 <% }) %>
 
 

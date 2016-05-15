@@ -1,1 +1,120 @@
-CAKALNICA
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>E-Cakalnica</title>
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cakalnica.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.bootstrap.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.dataTables.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.foundation.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.jqueryui.scss" rel="stylesheet">
+    <link href="bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="bower_components/startbootstrap-sb-admin-2/dist/css/timeline.css" rel="stylesheet">
+    <link href="bower_components/morrisjs/lib/example.css" rel="stylesheet">
+    <link href="bower_components/metisMenu/dist/metisMenu.css" rel="stylesheet">
+    <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    
+    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/npm.js"></script>
+    
+    <script src="user.js"></script>
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div style="background: #337ab7;">
+        <h2 style="text-align: center; color: white; margin:0; padding: 20px;">ČAKALNICA</h2>
+    </div>
+    <div class="panel panel-primary col-lg-12" style="padding-left: 10%;padding-right: 10%;">
+        <h3 style="text-align: center;">POTRJENI ČAKAJOČI</h3>
+        <% var i = 1; %>
+        <table class="table table-condensed" style="margin-bottom: 20px;">
+            <thead style=" background: rgba(51, 122, 183, .8);">
+              <tr>
+                <th>Ime</th>
+                <th>Priimek</th>
+                <th>Cas do pregleda</th>
+              </tr>
+            </thead>
+            <tbody>
+               <% potrjeneStranke.forEach(function(stranka) { %>
+                <tr id="<%= stranka.id %>" class="pesem">
+                <td>
+                 <%= stranka.ime %>
+                </td>
+                <td>
+                 <%= stranka.priimek %>
+                </td>
+                <td>
+                 <%= i++*10; %> min
+                </td>
+                
+              </tr>
+            <% }) %>
+            </tbody>
+        </table>
+     
+     
+                            
+                            
+    </div>
+    <div class="panel panel-primary col-lg-12" style="padding-left: 10%;padding-right: 10%;">
+        <h3 style="text-align: center;">ČAKAJO NA POTRDITEV</h3>
+        <table class="table table-condensed" style="margin-bottom: 20px;">
+            <thead style=" background: rgba(51, 122, 183, .80);">
+              <tr>
+                <th>Ime</th>
+                <th>Priimek</th>
+                <th>Id</th>
+              </tr>
+            </thead>
+            <tbody>
+               <% trenutneStranke.forEach(function(stranka) { %>
+                <tr id="<%= stranka.id %>" class="pesem">
+                <td>
+                 <%= stranka.ime %>
+                </td>
+                <td>
+                 <%= stranka.priimek %>
+                </td>
+                <td>
+                <%= stranka.id %>
+                </td>
+                
+                
+              </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    
+    <script>
+    setTimeout(function(){
+        window.location.reload(1);
+    },10000)
+    </script>
+   
+  </body>
+</html> 
+
+
+
