@@ -109,7 +109,7 @@ streznik.post('/potrdi', function(zahteva, odgovor) {
 
 streznik.post('/potrdiZaPregled', function(zahteva, odgovor) {
     var form = new formidable.IncomingForm();
-    
+    //try{
     form.parse(zahteva, function(napaka1, polje, datoteke){
         var name = polje.imeOf1;
         var surname = polje.primekOf1;
@@ -123,7 +123,7 @@ streznik.post('/potrdiZaPregled', function(zahteva, odgovor) {
             stmt.finalize();
             odgovor.redirect('/usluzbenec'); 
             console.log(polje.idOf1);
-    })
+    })//}catch(napaka1){odgovor.redirect('usluzbenec')};
     console.log("kja");
 });
 
