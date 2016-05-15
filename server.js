@@ -107,16 +107,46 @@ streznik.post('/potrdi', function(zahteva, odgovor) {
     })
 });
 
+streznik.post('/potrdiZaPregled', function(zahteva, odgovor) {
+    var form = new formidable.IncomingForm();
+    
+    form.parse(zahteva, function(napaka1, polje, datoteke){
+        var name = polje.imeOf;
+        var surname = polje.primekOf;
+        var idZaDodajo = polje.idOf;
+        pb2.run("DELETE FROM potrjeneStranke WHERE id = "+polje.id);
+        var stmt = pb.prepare("\
+            INSERT INTO potrjeneStranke \
+            (id, ime, priimek,timestamp ) \
+            VALUES (?,?,?,?)");
+            stmt.run(idZaDodajo,name,surname,new Date().getTime());
+            stmt.finalize();
+            odgovor.redirect('/usluzbenec');
+    })
+});
+
+streznik.post('/izbrisi', function(zahteva, odgovor) {
+    var form = new formidable.IncomingForm();
+    
+    form.parse(zahteva, function(napaka1, polje, datoteke){
+        pb.run("DELETE FROM potrjeneStranke WHERE id = "+polje.idIzbrisi);
+        odgovor.redirect('/usluzbenec');
+    })
+});
+
+
+
 //prikazi usluzbenec.html
 streznik.get('/usluzbenec', function(zahteva, odgovor) {
-  pb.run("DELETE FROM potrjeneStranke WHERE id = 52");
-   pb.all("SELECT * FROM potrjeneStranke", function(napaka, vrstice){
+   pb.all("SELECT * FROM potrjeneStranke LIMIT 10", function(napaka, vrstice){
+        pb2.all("SELECT * FROM potrjeneStranke LIMIT 10", function(napaka, vrstice1){
         if(napaka){
             console.log("Napaka baze");
         }else{
             console.log(vrstice);
-            odgovor.render('usluzbenec', {potrjeneStranke: vrstice});
+            odgovor.render('usluzbenec', {trenutneStranke: vrstice1, potrjeneStranke: vrstice});
         }
+        })
     })
 })
 
