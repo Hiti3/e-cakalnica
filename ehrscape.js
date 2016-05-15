@@ -1,3 +1,6 @@
+function tabela(napaka,)
+
+
 var pacienti_ID = ["cdbceb38-191f-419c-96f1-c4182a004951","0f6824b6-bd1b-4dcf-8e48-f51391d5f428","d6a3a5a1-17f7-4178-9f74-440d87cc2781","3eb872ea-fef6-460f-9e13-6a29c3dd3866","8027690a-7ec8-4caf-849d-6fac45d07edc","664dd4d0-ec1f-4d6d-b87a-6d5253d61800","1a30f45c-bf70-4948-abe4-246f386de07c","23e2e067-2fbf-4980-897d-0849706f582d","02031d7f-2c26-40fe-a5ad-36de8bf236cd"];
 var pacienti = [];
 for(var i = 0; i < pacienti_ID.length; i++){

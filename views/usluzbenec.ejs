@@ -69,9 +69,9 @@
                 </div>
                 <div class= "col-lg-2 col-md-2 col-xs-2 col-sm-2">
             <form action="/potrdiZaPregled" method="post">
-                <input style="display:none;" name ="imeOf" value ="<%= stranka.ime %>"/>
-                <input style="display:none;" name ="primekOf" value ="<%= stranka.priimek %>"/>
-                <input style="display:none;" name ="idOf" value ="<%= stranka.id %>"/>
+                <input style="display:none;" name ="imeOf1" value ="<%= stranka.ime %>"/>
+                <input style="display:none;" name ="primekOf1" value ="<%= stranka.priimek %>"/>
+                <input style="display:none;" name ="idOf1" value ="<%= stranka.id %>"/>
                 <button name="/potrdi" type="submit" class="btn btn-success" style="width: 100%;font-size: medium;">Potrdi</button>
             </form>
                   </div>
@@ -98,7 +98,7 @@
                 <div class= "col-lg-2 col-md-2 col-xs-2 col-sm-2">
             <form action="/izbrisi" method="post">
                 <input style="display:none;" name ="idIzbrisi" value ="<%= stranka.id %>"/>
-                <button name="/potrdi" type="submit" class="btn btn-danger" style="width: 100%;font-size: medium;">Odstrani</button>
+                <button name="/izbrisi" type="submit" class="btn btn-danger" style="width: 100%;font-size: medium;">Odstrani</button>
             </form>
           </div>
             <% }) %>

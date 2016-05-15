@@ -111,28 +111,33 @@ streznik.post('/potrdiZaPregled', function(zahteva, odgovor) {
     var form = new formidable.IncomingForm();
     
     form.parse(zahteva, function(napaka1, polje, datoteke){
-        var name = polje.imeOf;
-        var surname = polje.primekOf;
-        var idZaDodajo = polje.idOf;
-        pb2.run("DELETE FROM potrjeneStranke WHERE id = "+polje.idOf);
-        pb2.finalize();
+        var name = polje.imeOf1;
+        var surname = polje.primekOf1;
+        var idZaDodajo = polje.idOf1;
+        pb2.run("DELETE FROM potrjeneStranke WHERE id = '"+polje.idOf1+"'");
         var stmt = pb.prepare("\
             INSERT INTO potrjeneStranke \
             (id, ime, priimek,timestamp ) \
             VALUES (?,?,?,?)");
             stmt.run(idZaDodajo,name,surname,new Date().getTime());
             stmt.finalize();
-            odgovor.redirect('/usluzbenec');
+            odgovor.redirect('/usluzbenec'); 
+            console.log(polje.idOf1);
     })
+    console.log("kja");
 });
 
 streznik.post('/izbrisi', function(zahteva, odgovor) {
     var form = new formidable.IncomingForm();
     
     form.parse(zahteva, function(napaka1, polje, datoteke){
-        pb.run("DELETE FROM potrjeneStranke WHERE id = "+polje.idIzbrisi);
+        pb.run("DELETE FROM potrjeneStranke WHERE id = '"+polje.idIzbrisi+"'");
+        console.log(polje.idIzbrisi);
         odgovor.redirect('/usluzbenec');
+        console.log(polje.idIzbrisi);
+        
     })
+    console.log("Izbrisan..");
 });
 
 
