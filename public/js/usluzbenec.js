@@ -3,10 +3,10 @@ $(document).ready(function() {
        var open = $('.toggle-kartoteka').attr('data-open');
        //console.log(open);
        if(open == "true") {
-           $('#0').hide();
+           $('#cdbceb38-191f-419c-96f1-c4182a004951').hide();
             $('.toggle-kartoteka').attr('data-open', 'false');
        } else {
-           $('#0').show();
+           $('#cdbceb38-191f-419c-96f1-c4182a004951').show();
            $('.toggle-kartoteka').attr('data-open', 'true');
        }
     }); 
