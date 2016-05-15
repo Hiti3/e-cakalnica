@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>E-Cakalnica</title>
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="usluzbenec.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.bootstrap.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.dataTables.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.foundation.scss" rel="stylesheet">
+    <link href="bower_components/datatables-responsive/css/responsive.jqueryui.scss" rel="stylesheet">
+    <link href="bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="bower_components/startbootstrap-sb-admin-2/dist/css/timeline.css" rel="stylesheet">
+    <link href="bower_components/metisMenu/dist/metisMenu.css" rel="stylesheet">
+    <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+    
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
+    <script src="usluzbenec.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="panel panel-primary">
+      <div class="panel-heading"></div>
+        <div class="panel-body">
+          <div class = "col-lg-8 col-md-8 col-xs-8 col-sm-8">
+            <div class="list-group">
+              <!-- -->
+              <% potrjeneStranke.forEach(function(stranka) { %>
+
+                <button type="button" data-open="false" class="list-group-item toggle-kartoteka" ><%=stranka.ime %> </button>
+                <div class = "kartoteka" id = <%= "\" + stranka.id + "\" %> >
+                <div class = "col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading"></div>
+                      <div class="panel-body">
+                          Natančnejši podatki o pacientu
+                        </div>
+            
+                </div>
+                </div>
+                </div>
+
+            <% }) %>
+    
+            </div>
+          </div>
+          <div class= "col-lg-2 col-md-2 col-xs-2 col-sm-2">
+            <form action="/izbrisi" method="post">
+                <input style="display:none;" name ="idIzbrisi" value ="<%= id %>"/>
+                <button name="/potrdi" type="submit" class="btn btn-danger" style="width: 100%;font-size: medium;">Odstrani</button>
+</form>
+          </div>
+          <div class= "col-lg-2 col-md-2 col-xs-2 col-sm-2">
+            <form action="/potrdiZaPregled" method="post">
+                <input style="display:none;" name ="imeOf" value ="<%= name %>"/>
+                <input style="display:none;" name ="primekOf" value ="<%= surname %>"/>
+                <input style="display:none;" name ="idOf" value ="<%= id %>"/>
+                <button name="/potrdi" type="submit" class="btn btn-success" style="width: 100%;font-size: medium;">Potrdi</button>
+</form>
+          </div>
+        </div>
+      </div> 
+        
+  </body>
+  
+  
