@@ -145,8 +145,28 @@ function preberiEHR_pacienti() {
     	
         	pacienti[i] = pacient;
         	console.log(pacient);
+        	document.getElementById("cdbceb38-191f-419c-96f1-c4182a004951").innerHTML = '<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">\
+        	<div class="panel panel-primary">\
+              <div class="panel-heading">Kartoteka</div>\
+                <div class="panel-body">\
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">\
+                        <p>Ime in priimek:' + pacient.firstName + ' ' + pacient.lastName + ' </p>\
+                    </div>\
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">\
+                        <p>Spol: '+ pacient.gender + '</p>\
+                    </div>\
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">\
+                        <p>Telesna višina: ' + pacient.height + ' ' + pacient.heightUnit +' </p>\
+                    </div>\
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">\
+                        <p>Telesna teža: ' + pacient.weight + ' ' + pacient.weightUnit +'</p>\
+                    </div>\
+                </div>\
+                </div>\
+            </div>';
         });
-        
+    
     }
     
 }
+
