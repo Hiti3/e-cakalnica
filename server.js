@@ -114,7 +114,8 @@ streznik.post('/potrdiZaPregled', function(zahteva, odgovor) {
         var name = polje.imeOf;
         var surname = polje.primekOf;
         var idZaDodajo = polje.idOf;
-        pb2.run("DELETE FROM potrjeneStranke WHERE id = "+polje.id);
+        pb2.run("DELETE FROM potrjeneStranke WHERE id = "+polje.idOf);
+        pb2.finalize();
         var stmt = pb.prepare("\
             INSERT INTO potrjeneStranke \
             (id, ime, priimek,timestamp ) \

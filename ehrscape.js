@@ -1,5 +1,8 @@
 var pacienti_ID = ["cdbceb38-191f-419c-96f1-c4182a004951","0f6824b6-bd1b-4dcf-8e48-f51391d5f428","d6a3a5a1-17f7-4178-9f74-440d87cc2781","3eb872ea-fef6-460f-9e13-6a29c3dd3866","8027690a-7ec8-4caf-849d-6fac45d07edc","664dd4d0-ec1f-4d6d-b87a-6d5253d61800","1a30f45c-bf70-4948-abe4-246f386de07c","23e2e067-2fbf-4980-897d-0849706f582d","02031d7f-2c26-40fe-a5ad-36de8bf236cd"];
 var pacienti = [];
+for(var i = 0; i < pacienti_ID.length; i++){
+    pacienti[i] = {"id": pacienti_ID[i]};
+}
 
 $(document).ready(function() {
 
@@ -27,6 +30,7 @@ function getSessionID() {
 function preberiEHR_pacienti() {
     var i;
     for (i = 0; i < pacienti_ID.length; i++) {
+        var id;
         var firstName;
         var lastName;
         var gender;
@@ -52,6 +56,7 @@ function preberiEHR_pacienti() {
         type: 'GET',
         headers: {"Ehr-Session": getSessionID()},
         success: function (data) {
+            id = pacienti_ID[i];
             firstName = data.party.firstNames;
             lastName = data.party.lastNames;
             gender = data.party.gender;
@@ -116,8 +121,9 @@ function preberiEHR_pacienti() {
     	}})))))));
 
         post.done(function(p) {
-
+            console.log(pacienti_ID[i]);
             var pacient = {
+                "id": id,
             	"firstName": firstName,
                 "lastName": lastName,
                 "gender": gender,
@@ -140,5 +146,7 @@ function preberiEHR_pacienti() {
         	pacienti[i] = pacient;
         	console.log(pacient);
         });
+        
     }
+    
 }
